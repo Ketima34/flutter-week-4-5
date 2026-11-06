@@ -44,10 +44,19 @@ import 'homework/containerInsetsBoxDecoration.dart';
 import 'homework/columnGradient.dart';
 import 'homework/fromMockUpToCode.dart';
 import 'homework/yourWelcomePage.dart';
+import "component/appBar.dart";
+import 'homework/testing.dart';
+
+//week 6
+
+
+import 'week6/Ex1.dart';
+import 'week6/Ex2.dart';
 void main() => runApp(
   const MaterialApp(
-    home: Ex5(),
-  ),
+    home: MyBotton(),
+    ),
+  
 );
 
 

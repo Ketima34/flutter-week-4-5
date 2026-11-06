@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
 class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const MyAppBar({super.key});
-
+ 
+  final String title;
+   const MyAppBar({super.key, required this.title});
   @override
   Size get preferredSize => const Size.fromHeight(50);
 
@@ -20,7 +21,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
 
     return AppBar(
       backgroundColor: Colors.amber,
-      title: const Text("data"),
+      title:  Text(title),
       toolbarHeight: 50,
     );
   }

@@ -10,17 +10,11 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const MyAppBar(),
-      bottomNavigationBar: const MyNavigationBar(),
-      bottomSheet: Center(
-        child: MyButton(
-          text: 'Click Me',
-          onPressed: () {
-            // Handle button press
-            print('Button pressed!');
-          },
-        ),
+      appBar:  AppBar(
+        title: const Text('My Home Page'),
       ),
+      bottomNavigationBar: const MyNavigationBar(),
+     
       body: Container(
         
             child: Container(

@@ -15,7 +15,7 @@ class Ex5 extends StatelessWidget  {
          title : const Text("Welcome"),
          backgroundColor: Colors.amber,
         
-         toolbarHeight: 100,
+         toolbarHeight: 50,
         
      ),
     body: Center(
@@ -28,7 +28,9 @@ class Ex5 extends StatelessWidget  {
             color: Colors.amber,
             
           ),
-          child: Center(child: Text("My hobbies"),)
+          width: 400,
+          padding: const EdgeInsets.all(20),
+          child: Text("My hobbies"),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -49,13 +51,22 @@ class Ex5 extends StatelessWidget  {
       ),
       
     ),
-     bottomNavigationBar: BottomNavigationBar(
-      backgroundColor: Colors.amber,
-      items: [  
-       BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-        BottomNavigationBarItem(icon :Icon(Icons.person), label : "Profile"),
+    //  bottomNavigationBar: BottomNavigationBar(
+    //   backgroundColor: Colors.amber,
+    //   items: [  
+    //    BottomNavigationBarItem(icon: Icon(Icons.circle), label: "Home"),
+    //     BottomNavigationBarItem(icon :Icon(Icons.circle), label: "Profile")
         
-     ],)
+    //  ],)
+    
+    bottomNavigationBar: BottomNavigationBar(
+      backgroundColor: Colors.amber,
+      items: const [
+        BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+        BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
+      ],
+    ),
+   
     );
   }
 }

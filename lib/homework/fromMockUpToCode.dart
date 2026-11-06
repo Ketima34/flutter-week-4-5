@@ -23,13 +23,14 @@ class Ex4 extends StatelessWidget{
                  ),
                  Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  spacing: 20,
                   children: [
-                    Container( color: Colors.green, width: 100, height: 100),
-                    Container( color: Colors.green, width: 100, height: 100),
-                    Container( color: Colors.green, width: 100, height: 100,)
+                    Expanded( child: Container(color: Colors.green, width: 100, height: 100)),
+                    Expanded( child: Container(color: Colors.green, width: 100, height: 100)),
+                    Expanded( child: Container(color: Colors.green, width: 100, height: 100))
                   ],
                  ),
-                 Container(height: 20,),
+                 SizedBox(height: 20,),
                  Expanded(flex: 1, child: Container(color: const Color.fromARGB(115, 250, 92, 182),),)
              ],
           ),
