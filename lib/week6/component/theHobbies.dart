@@ -11,8 +11,8 @@ class MyHobbies extends StatelessWidget {
 
     return Container(
     
-       padding: EdgeInsets.all(30),
-       margin: EdgeInsets.fromLTRB(40, 20, 40, 0),
+       padding: const EdgeInsets.all(30),
+       margin: const EdgeInsets.fromLTRB(40, 20, 40, 0),
        decoration: BoxDecoration(
          borderRadius: BorderRadius.circular(20),
         color: Colors.amber,

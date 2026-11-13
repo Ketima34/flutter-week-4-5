@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/component/appBar.dart';
+import '../component/appBar.dart';
 import 'component/theHobbies.dart';
 
 class Hobbies extends StatelessWidget {
@@ -9,7 +9,7 @@ class Hobbies extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       appBar: MyAppBar( title: "My Hobbies",),
       body: Center(
 

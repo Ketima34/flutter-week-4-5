@@ -52,12 +52,20 @@ import 'homework/testing.dart';
 
 import 'week6/Ex1.dart';
 import 'week6/Ex2.dart';
+
+import './week6/component/CustomBotton.dart';
+import './week6/practies/rollTheDice.dart';
+
 void main() => runApp(
   const MaterialApp(
-    home: MyBotton(),
+    home:  Scaffold(
+      body:  Center(
+        child: DiceRoller() ,
     ),
-  
+    ),
+  )
 );
+
 
 
 

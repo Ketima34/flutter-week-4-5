@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-enum ButtonType { primary, secondary }
+enum ButtonType { primary, secondary   }
 enum ButtonPosition { left, right }
 class CustomButton extends StatelessWidget {
   final String text;
@@ -17,8 +17,8 @@ class CustomButton extends StatelessWidget {
 
     if(positon == ButtonPosition.left){
       return Container(
-        padding: EdgeInsets.all(10),
-        margin: EdgeInsets.all(20),
+        padding: const EdgeInsets.all(10),
+        margin: const EdgeInsets.all(20),
         decoration: BoxDecoration( 
           color: buttonType == ButtonType.primary ? Colors.amber : Colors.grey,
           borderRadius: BorderRadius.circular(20),),
@@ -27,15 +27,15 @@ class CustomButton extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
               Icon(icon, size: 20,),
-              SizedBox(width: 10),
+             const  SizedBox(width: 10),
               Text(text),
             ],)
           )
       );
     }else{
       return Container(
-        padding: EdgeInsets.all(10),
-        margin: EdgeInsets.all(20),
+        padding:const EdgeInsets.all(10),
+        margin: const EdgeInsets.all(20),
         decoration: BoxDecoration( 
           color: buttonType == ButtonType.primary ? Colors.amber : Colors.grey,
           borderRadius: BorderRadius.circular(20),),
@@ -44,7 +44,7 @@ class CustomButton extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
               Text(text),
-              SizedBox(width: 10),
+            const  SizedBox(width: 10),
               Icon(icon, size: 20,),
             ],)
           )
