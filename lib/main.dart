@@ -1,5 +1,6 @@
 
-import 'package:flutter/material.dart';
+// import 'package:flutter/material.dart';
+// import 'package:g2/week6/Ex3.dart';
 
 // ___________________________________________________________________
 // CASE 1
@@ -37,34 +38,103 @@ import 'package:flutter/material.dart';
 //   );
 // }
 
-import 'component/homePage.dart';
+import 'package:flutter/material.dart';
+import 'package:g2/component/appBar.dart';
 
-import 'homework/ scaffoldText.dart';
-import 'homework/containerInsetsBoxDecoration.dart';
-import 'homework/columnGradient.dart';
-import 'homework/fromMockUpToCode.dart';
-import 'homework/yourWelcomePage.dart';
-import "component/appBar.dart";
-import 'homework/testing.dart';
+import 'week8/raw2.dart';
+import 'week7Homework/selectAbleButtom.dart';
+import 'week7Homework/theBestCard.dart';
+import 'package:flutter/material.dart';
 
-//week 6
-
-
-import 'week6/Ex1.dart';
-import 'week6/Ex2.dart';
-
-import './week6/component/CustomBotton.dart';
-import './week6/practies/rollTheDice.dart';
+List<String> images = [
+  "assets/w4-s2/bird.jpg",
+  "assets/w4-s2/bird2.jpg",
+  "assets/w4-s2/insect.jpg",
+  "assets/w4-s2/girl.jpg",
+  "assets/w4-s2/man.jpg",
+];
 
 void main() => runApp(
-  const MaterialApp(
-    home:  Scaffold(
-      body:  Center(
-        child: DiceRoller() ,
-    ),
-    ),
-  )
-);
+      const MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: ImageViewerScreen(), // 1. Point home to your StatefulWidget
+      ),
+    );
+
+// 2. StatefulWidget holds the whole Scaffold so AppBar and body share 'count'
+class ImageViewerScreen extends StatefulWidget {
+  const ImageViewerScreen({super.key});
+
+  @override
+  State<ImageViewerScreen> createState() => _ImageViewerScreenState();
+}
+
+class _ImageViewerScreenState extends State<ImageViewerScreen> {
+  int count = 0;
+
+  void increment() {
+    setState(() {
+      // If not at the last image (index 4), go next; otherwise wrap to 0
+      if (count < images.length - 1) {
+        count++;
+      } else {
+        count = 0;
+      }
+    });
+  }
+
+  void decrement() {
+    setState(() {
+      // If not at the first image (index 0), go back; otherwise wrap to last (index 4)
+      if (count > 0) {
+        count--;
+      } else {
+        count = images.length - 1;
+      }
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.green[50],
+      appBar: AppBar(
+        backgroundColor: Colors.green[400],
+        title: const Text('Image viewer'),
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(Icons.navigate_before),
+            tooltip: 'Go to the previous image',
+            onPressed: decrement, // Swapped to decrement for "previous"
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 0, 50, 0),
+            child: IconButton(
+              icon: const Icon(Icons.navigate_next),
+              tooltip: 'Go to the next image',
+              onPressed: increment, // Swapped to increment for "next"
+            ),
+          ),
+        ],
+      ),
+      // 3. Pass 'count' directly into your Stateless child widget
+      body:  DisplayPic(index: count),
+      
+    );
+  }
+}
+
+class DisplayPic extends StatelessWidget {
+  final int index;
+  const DisplayPic({super.key, required this.index});
+
+  @override
+  Widget build(BuildContext context) {
+    return Image.asset(images[index]);
+  }
+}
+
+
 
 
 

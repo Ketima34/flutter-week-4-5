@@ -39,11 +39,3 @@ class _DiceRollerState extends State<DiceRoller> {
   }
 }
 
-void main() => runApp(
-  const MaterialApp(
-    home: Scaffold(
-      backgroundColor: Colors.deepPurple,
-      body: Center(child: DiceRoller()),
-    ),
-  ),
-);

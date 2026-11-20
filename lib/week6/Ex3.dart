@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import '../component/appBar.dart';
 import 'component/TheProduct.dart';
 
-const String pic1 = 'lib/week6/assets/ex3/dart.png';
 class Products extends StatelessWidget {
   const Products({super.key});
 
@@ -19,7 +18,7 @@ class Products extends StatelessWidget {
          child: Column(
          
             children: [
-              TheProducts(title: Product.dart, description: "I like it" , myImage: pic1,)
+              TheProducts(course: Product.dart,)
             ],
         ))
       );

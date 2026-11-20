@@ -1,56 +1,74 @@
 import 'package:flutter/material.dart';
 
-enum ButtonType { primary, secondary   }
+enum ButtonType {
+  primary( 
+    label :'primary' , 
+    color : Colors.red
+    ),
+  secondary(
+    label : "secondary",
+    color : Colors.blue
+  ),
+  low(
+    label : "low",
+    color : Color.fromARGB(255, 31, 197, 9)
+  ),
+ disable(
+    label : "disable",
+    color : Color.fromARGB(255, 164, 172, 163)
+  );
+
+  
+
+  final String label;
+  final Color color;
+
+  const ButtonType({required this.label , required this.color});
+
+
+  }
 enum ButtonPosition { left, right }
 class CustomButton extends StatelessWidget {
   final String text;
   final IconData icon;
-  final ButtonType? buttonType;
-  final ButtonPosition? buttonPosition;
+  final ButtonType buttonType;
+  final ButtonPosition buttonPosition;
 
-  const CustomButton({super.key, required this.text, required this.icon,this.buttonType , this.buttonPosition = ButtonPosition.left});
+  const CustomButton({super.key, required this.text, required this.icon,this.buttonType = ButtonType.primary, this.buttonPosition = ButtonPosition.left });
 
   @override
   Widget build(BuildContext context) {
     
-    ButtonPosition? positon = buttonPosition ?? ButtonPosition.left;
-
-    if(positon == ButtonPosition.left){
-      return Container(
+  
+      return Padding(
         padding: const EdgeInsets.all(10),
-        margin: const EdgeInsets.all(20),
-        decoration: BoxDecoration( 
-          color: buttonType == ButtonType.primary ? Colors.amber : Colors.grey,
-          borderRadius: BorderRadius.circular(20),),
-          child : Center(
+          
+          child :  ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: buttonType.color,
+            ),
+            onPressed: () =>{},
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
+              
               children: [
-              Icon(icon, size: 20,),
-             const  SizedBox(width: 10),
+           if (buttonPosition == ButtonPosition.left) ...[
+              Icon(icon, size: 20),
+               const SizedBox(width: 10),
               Text(text),
-            ],)
+           ] else ...[
+               Text(text),
+              const SizedBox(width: 10),
+              Icon(icon, size: 20),
+    ],
+  ],
+            
+            )
           )
       );
-    }else{
-      return Container(
-        padding:const EdgeInsets.all(10),
-        margin: const EdgeInsets.all(20),
-        decoration: BoxDecoration( 
-          color: buttonType == ButtonType.primary ? Colors.amber : Colors.grey,
-          borderRadius: BorderRadius.circular(20),),
-          child : Center(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-              Text(text),
-            const  SizedBox(width: 10),
-              Icon(icon, size: 20,),
-            ],)
-          )
-      );
+    
     }
   }
-}
+
     
   
